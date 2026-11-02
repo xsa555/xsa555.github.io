@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home Backup</title>
+<meta name="description" content="Home Backup is a personal command-line tool that makes backups of home-directory folders to the owner's own Google Drive.">
+<style>
+  :root {
+    --bg: #fbfaf7; --fg: #1d1d1b; --muted: #5d5c57; --line: #e4e1d8;
+    --accent: #1f5d50; --code: #f1efe8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #151614; --fg: #e9e7e1; --muted: #a3a19a; --line: #2e2f2b;
+      --accent: #7cc4ad; --code: #24251f;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 17px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  header { border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between; padding-top: 18px; padding-bottom: 18px; }
+  .brand { font-weight: 650; color: var(--fg); text-decoration: none; letter-spacing: -0.01em; }
+  nav a { color: var(--muted); text-decoration: none; margin-left: 18px; font-size: 15px; }
+  nav a:first-child { margin-left: 0; }
+  nav a:hover, nav a[aria-current] { color: var(--accent); }
+  main.wrap { padding-top: 48px; padding-bottom: 40px; }
+  h1 { font-size: clamp(30px, 6vw, 42px); line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 16px; }
+  h2 { font-size: 21px; letter-spacing: -0.01em; margin: 40px 0 10px; }
+  p, ul { margin: 0 0 14px; }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  .lead { font-size: 19px; color: var(--muted); max-width: 60ch; }
+  a { color: var(--accent); }
+  code { font: 0.9em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--code); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+  footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  footer .wrap { padding-top: 20px; padding-bottom: 32px; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="./">Home Backup</a>
+    <nav>
+      <a href="./" aria-current="page">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Home Backup</h1>
+  <p class="lead">A personal command-line tool that makes backups of selected folders from a home directory to the owner's own Google Drive.</p>
+
+  <h2>What it does</h2>
+  <ul>
+    <li>Runs on the owner's own computer as a script built on the open-source backup program <a href="https://duplicity.us/">duplicity</a>, usually on a schedule.</li>
+    <li>Backs up only the folders the owner selects inside their home directory.</li>
+    <li>Uploads the backups to a folder in the owner's Google Drive, restores files from them on request, and deletes old backups according to the owner's retention settings.</li>
+  </ul>
+
+  <h2>How it uses Google Drive</h2>
+  <p>The app signs in with Google OAuth and requests a single permission: <code>https://www.googleapis.com/auth/drive.file</code>. With it the app can see and manage only the files and folders it has created itself. It cannot see, read, modify or delete any other files in your Google Drive.</p>
+  <p>Access to Google Drive is used only to store, list, download and delete the app's own backup files. No Google user data is sent to the developer or to any third party. Details are in the <a href="privacy.html">Privacy Policy</a>.</p>
+
+  <h2>Who it is for</h2>
+  <p>Home Backup is a personal tool operated by the owner of this website for backing up their own files. It is not a hosted service: there are no accounts, no payments and no servers operated by the developer. Everything runs on the user's own computer and talks directly to Google.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    Home Backup · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a>
+  </div>
+</footer>
+</body>
+</html>
